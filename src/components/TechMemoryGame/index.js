@@ -24,13 +24,9 @@ const TechMemoryGame = () => {
   const [startTime, setStartTime] = useState(null);
   const [currentTime, setCurrentTime] = useState(0);
 
-  // Mémorisation du tableau de cartes mélangées
-  // Utilisation de useMemo pour créer le tableau de cartes une seule fois
   const initializeCards = useCallback(() => {
-    // Dupliquer chaque technologie pour créer des paires
     const duplicatedTechs = [...techIcons, ...techIcons];
     
-    // Mélanger le tableau
     const shuffledCards = duplicatedTechs
       .map(tech => ({ ...tech, id: Math.random() }))
       .sort(() => Math.random() - 0.5);
@@ -44,7 +40,6 @@ const TechMemoryGame = () => {
     setCurrentTime(0);
   }, []);
 
-  // Démarrer le chronomètre quand le jeu commence
   useEffect(() => {
     let interval;
     if (gameStarted && !gameCompleted && startTime) {
@@ -55,31 +50,26 @@ const TechMemoryGame = () => {
     return () => clearInterval(interval);
   }, [gameStarted, gameCompleted, startTime]);
 
-  // Vérifier si le jeu est terminé
   useEffect(() => {
     if (matchedPairs.length === techIcons.length && gameStarted) {
       setGameCompleted(true);
     }
   }, [matchedPairs, gameStarted]);
 
-  // Gérer le retournement des cartes
-  // Utilisation de useCallback pour mémoriser la fonction
+
   const handleCardClick = useCallback((index) => {
-    // Ignorer le clic si la carte est déjà retournée ou si 2 cartes sont déjà retournées
+
     if (flippedIndices.includes(index) || matchedPairs.includes(index) || flippedIndices.length >= 2) {
       return;
     }
 
-    // Si c'est la première carte du tour, démarrer le jeu
     if (!gameStarted) {
       setGameStarted(true);
     }
 
-    // Ajouter l'index à la liste des cartes retournées
     const newFlippedIndices = [...flippedIndices, index];
     setFlippedIndices(newFlippedIndices);
 
-    // Si c'est la deuxième carte, vérifier si c'est une paire
     if (newFlippedIndices.length === 2) {
       setMoves(moves => moves + 1);
       
@@ -88,11 +78,9 @@ const TechMemoryGame = () => {
       const secondCard = cards[secondIndex];
 
       if (firstCard.name === secondCard.name) {
-        // C'est une paire
         setMatchedPairs([...matchedPairs, firstIndex, secondIndex]);
         setFlippedIndices([]);
       } else {
-        // Ce n'est pas une paire, retourner les cartes après un délai
         setTimeout(() => {
           setFlippedIndices([]);
         }, 1000);
@@ -100,7 +88,6 @@ const TechMemoryGame = () => {
     }
   }, [flippedIndices, matchedPairs, cards, gameStarted]);
 
-  // Score mémorisé basé sur le nombre de mouvements et le temps
   const score = useMemo(() => {
     if (!gameCompleted) return null;
     const baseScore = 1000;
@@ -109,14 +96,12 @@ const TechMemoryGame = () => {
     return Math.max(baseScore - movesPenalty - timePenalty, 0);
   }, [gameCompleted, moves, currentTime]);
 
-  // Formatage du temps pour l'affichage
   const formattedTime = useMemo(() => {
     const minutes = Math.floor(currentTime / 60);
     const seconds = currentTime % 60;
     return `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
   }, [currentTime]);
 
-  // Démarrer ou redémarrer le jeu
   const startGame = useCallback(() => {
     initializeCards();
     setGameStarted(true);
