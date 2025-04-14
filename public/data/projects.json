@@ -1,0 +1,33 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "Project 1",
+      "description": "Description du projet 1",
+      "technologies": [
+        "React",
+        "Typescript"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Project 2",
+      "description": "Description du projet 2",
+      "technologies": [
+        "Node.js",
+        "MongoDB"
+      ]
+    },
+    {
+      "title": "TP Portfolio React",
+      "description": "Ce Portfolio est un portfolio réalisé en TP afin de se former à REACT. Il implique un fichier JSON à update si on crée un nouveau projet (téléchargement d'un JSON à mettre à la place de l'ancien dans le dossier public/service).\n\nLe but était de créer un projets avec la possibilité de modifier/supprimer/créer de nouveaux projets",
+      "technologies": [
+        "React",
+        "JavaScript",
+        "CSS",
+        "JSON"
+      ],
+      "id": 1744292230369
+    }
+  ]
+}

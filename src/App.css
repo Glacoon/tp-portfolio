@@ -1,0 +1,431 @@
+/* Variables de couleurs */
+:root {
+  --primary-color: #a8d8ea; /* Bleu pastel */
+  --secondary-color: #f7c5a8; /* Pêche/orange pastel (complémentaire) */
+  --accent-color: #aa96da; /* Violet pastel */
+  --light-color: #f9f9f9; /* Blanc cassé */
+  --dark-color: #464c53; /* Gris foncé */
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+/* Styles globaux */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--light-color);
+  color: var(--dark-color);
+  line-height: 1.6;
+}
+
+.App {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* En-tête */
+header {
+  background-color: var(--primary-color);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--dark-color);
+}
+
+.nav {
+  margin-top: 1rem;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 1.5rem;
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: var(--dark-color);
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.nav-item a:hover {
+  color: #fff;
+}
+
+/* Section profil */
+.profile-section {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  margin-bottom: 2rem;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.profile-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 1.5rem;
+  border: 3px solid var(--secondary-color);
+}
+
+.profile-name {
+  font-size: 1.8rem;
+  margin: 0;
+  color: var(--dark-color);
+}
+
+.profile-description {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Section projets */
+.project-section {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.section-title {
+  font-size: 1.8rem;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--primary-color);
+  color: var(--dark-color);
+}
+
+.project-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.project-item {
+  background-color: var(--light-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: var(--transition);
+  border-left: 4px solid var(--accent-color);
+}
+
+.project-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
+}
+
+.project-title {
+  font-size: 1.3rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: var(--dark-color);
+}
+
+.project-description {
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.project-details {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Boutons */
+button {
+  background-color: var(--primary-color);
+  color: var(--dark-color);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+button:hover {
+  background-color: var(--secondary-color);
+}
+
+button:last-child {
+  background-color: var(--secondary-color);
+}
+
+button:last-child:hover {
+  background-color: #f5b08e;
+}
+
+/* Formulaire */
+.project-form {
+  background-color: var(--light-color);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-top: 4px solid var(--accent-color);
+}
+
+input, textarea {
+  width: 97%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: inherit;
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .profile-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .profile-image {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+  
+  .project-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Styles pour la page À propos */
+.about-section {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  margin-bottom: 2rem;
+}
+
+.about-content {
+  line-height: 1.7;
+}
+
+.about-content h3 {
+  margin-top: 1.5rem;
+  font-size: 1.3rem;
+  color: var(--dark-color);
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.about-content ul {
+  padding-left: 1.5rem;
+}
+
+.about-content li {
+  margin-bottom: 0.5rem;
+}
+
+/* Styles pour la page Projets */
+.projects-page {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.projects-intro {
+  margin-bottom: 2rem;
+  color: #666;
+}
+
+/* Styles pour la page Contact */
+.contact-section {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.contact-intro {
+  margin-bottom: 2rem;
+  color: #666;
+}
+
+.contact-form {
+  background-color: var(--light-color);
+  padding: 2rem;
+  border-radius: 8px;
+  border-top: 4px solid var(--accent-color);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--dark-color);
+}
+
+.submit-btn {
+  background-color: var(--accent-color);
+  color: white;
+  font-weight: 600;
+  padding: 0.8rem 1.5rem;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.submit-btn:hover {
+  background-color: #9681c9;
+}
+
+/* Styles pour les technologies */
+.tech-checkboxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+.tech-checkbox {
+  display: flex;
+  align-items: center;
+  background-color: var(--light-color);
+  padding: 0.5rem 0.8rem;
+  border-radius: 4px;
+  transition: var(--transition);
+}
+
+.tech-checkbox input[type="checkbox"] {
+  width: auto;
+  margin-right: 0.5rem;
+  margin-bottom: 0;
+}
+
+.tech-checkbox:hover {
+  background-color: var(--primary-color);
+  opacity: 0.8;
+}
+
+.tech-checkbox input:checked + label {
+  font-weight: 600;
+}
+
+.project-technologies {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--accent-color);
+  font-weight: 500;
+}
+
+/* Style pour l'indicateur de chargement */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  font-size: 1.2rem;
+  color: var(--dark-color);
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  margin: 2rem;
+}
+
+/* Style pour les petits textes d'aide */
+.form-hint {
+  display: block;
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 0.2rem;
+}
+
+/* Style pour le bouton d'exportation */
+.export-container {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+}
+
+.export-btn {
+  background-color: var(--dark-color);
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.export-btn:hover {
+  background-color: var(--accent-color);
+}
+
+/* Styles pour la page Fun */
+.fun-page {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.fun-intro {
+  margin-bottom: 2rem;
+  color: #666;
+  max-width: 800px;
+  margin: 0 auto 2rem auto;
+  text-align: center;
+}
+
+/* Style spécial pour le lien Fun dans la navigation */
+.fun-link {
+  background-color: var(--accent-color);
+  color: white !important;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  animation: pulse-light 2s infinite;
+}
+
+.fun-link:hover {
+  background-color: var(--primary-color);
+  color: var(--dark-color) !important;
+}
+
+@keyframes pulse-light {
+  0% {
+    box-shadow: 0 0 0 0 rgba(170, 150, 218, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(170, 150, 218, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(170, 150, 218, 0);
+  }
+}
